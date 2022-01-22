@@ -26,21 +26,21 @@ public class WordManageServiceImpl extends AbstractWordManage implements IWordMa
             root = root.slot[charIndex];
         }
 
-        ArrayList<Node> result = new ArrayList<>();
+        ArrayList<Node> list = new ArrayList<>();
         if (root.prefix != 0) {
             for (int i = 0; i < root.slot.length; i++) {
                 if (root.slot[i] != null) {
                     char c = (char) (i + 'a');
-                    collect(root.slot[i], String.valueOf(sb) + c, result, RESULT_LIMIT);
-                    if (result.size() >= RESULT_LIMIT) {
-                        return result;
+                    collect(root.slot[i], String.valueOf(sb) + c, list, RESULT_LIMIT);
+                    if (list.size() >= RESULT_LIMIT) {
+                        return list;
                     }
                 }
 
             }
         }
 
-        return result;
+        return list;
     }
 
 }
